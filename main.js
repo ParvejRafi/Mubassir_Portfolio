@@ -258,3 +258,13 @@ window.addEventListener('scroll', () => {
   if (c1) c1.style.transform = `translateY(${scrollY * 0.15}px)`;
   if (c2) c2.style.transform = `translateY(${-scrollY * 0.1}px)`;
 });
+
+/* ------------------------------------------------------------------
+   10. DYNAMIC DATE on navbar
+   ------------------------------------------------------------------ */
+const navDateEl = document.getElementById('nav-date');
+if (navDateEl) {
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const today  = new Date();
+  navDateEl.textContent = today.toLocaleDateString('en-US', options);
+}
