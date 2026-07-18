@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Md Mubashshir Billah – Media & Communication student at AIU, Malaysia. Seeking internship in PR, Digital Marketing, Media Production or Corporate Communication." />
+  <title>Md Mubashshir Billah | Media & Communication Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== CURSOR ===== -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- ===== NOISE OVERLAY ===== -->
+  <div class="noise-overlay"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">[</span>MB<span class="logo-bracket">]</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about"        class="nav-link">About</a></li>
+        <li><a href="#experience"   class="nav-link">Experience</a></li>
+        <li><a href="#projects"     class="nav-link">Projects</a></li>
+        <li><a href="#achievements" class="nav-link">Awards</a></li>
+        <li><a href="#languages"    class="nav-link">Languages</a></li>
+        <li><a href="#chat"         class="nav-link">AI Chat</a></li>
+        <li><a href="#contact"      class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <!-- Animated background elements -->
+    <div class="hero-bg">
+      <div class="bg-circle c1"></div>
+      <div class="bg-circle c2"></div>
+      <div class="bg-circle c3"></div>
+      <div class="scanline"></div>
+      <div class="lens-flare lf1"></div>
+      <div class="lens-flare lf2"></div>
+      <!-- Film strip decoration -->
+      <div class="filmstrip left">
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      </div>
+      <div class="filmstrip right">
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+        <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+      </div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- LEFT: Text -->
+      <div class="hero-text">
+        <div class="hero-label fade-up delay-1">
+          <span class="label-dot"></span>
+          <span>Media &amp; Communication · AIU Malaysia</span>
+        </div>
+        <h1 class="hero-name fade-up delay-2">
+          <span class="name-line">Md</span>
+          <span class="name-line accent-name">Mubashshir</span>
+          <span class="name-line">Billah</span>
+        </h1>
+        <div class="hero-roles fade-up delay-3">
+          <span class="role-pill">📸 Cameraman</span>
+          <span class="role-pill">🎬 Editor</span>
+          <span class="role-pill">📡 Broadcaster</span>
+          <span class="role-pill">✍️ Content Creator</span>
+        </div>
+        <p class="hero-sub fade-up delay-4">
+          A passionate storyteller and media practitioner — turning <em>ideas into visuals</em>,
+          <em>stories into impact</em>, and <em>moments into memories</em> through the lens of
+          creativity, communication, and purpose.
+        </p>
+        <div class="hero-ctas fade-up delay-5">
+          <a href="#contact" class="btn-primary">
+            <i class="ph ph-paper-plane-tilt"></i> Get In Touch
+          </a>
+          <a href="#projects" class="btn-ghost">
+            <i class="ph ph-film-slate"></i> View Projects
+          </a>
+        </div>
+        <div class="hero-badge fade-up delay-5">
+          <i class="ph ph-seal-check"></i>
+          <span>Full Albukhary Foundation Scholar · CGPA 3.63 · Dean's List</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Photo -->
+      <div class="hero-photo-wrap fade-up delay-3">
+        <div class="photo-frame">
+          <div class="photo-corner tl"></div>
+          <div class="photo-corner tr"></div>
+          <div class="photo-corner bl"></div>
+          <div class="photo-corner br"></div>
+          <div class="photo-ring"></div>
+          <img src="image.png" alt="Md Mubashshir Billah" class="hero-photo" />
+          <div class="photo-overlay"></div>
+          <div class="photo-tag">
+            <i class="ph ph-record"></i> REC
+          </div>
+          <div class="photo-timecode">00:01:24:08</div>
+        </div>
+        <div class="photo-glow"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span class="scroll-text">SCROLL</span>
+      <span class="scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section id="stats">
+    <div class="stats-ticker">
+      <div class="ticker-track">
+        <span>CGPA 3.63</span><span class="ticker-dot">◆</span>
+        <span>Dean's List</span><span class="ticker-dot">◆</span>
+        <span>30+ Cricket Matches</span><span class="ticker-dot">◆</span>
+        <span>4 Media Projects</span><span class="ticker-dot">◆</span>
+        <span>4 Languages</span><span class="ticker-dot">◆</span>
+        <span>Full Scholarship</span><span class="ticker-dot">◆</span>
+        <span>12+ Medals</span><span class="ticker-dot">◆</span>
+        <span>AIU Malaysia</span><span class="ticker-dot">◆</span>
+        <!-- duplicate for seamless loop -->
+        <span>CGPA 3.63</span><span class="ticker-dot">◆</span>
+        <span>Dean's List</span><span class="ticker-dot">◆</span>
+        <span>30+ Cricket Matches</span><span class="ticker-dot">◆</span>
+        <span>4 Media Projects</span><span class="ticker-dot">◆</span>
+        <span>4 Languages</span><span class="ticker-dot">◆</span>
+        <span>Full Scholarship</span><span class="ticker-dot">◆</span>
+        <span>12+ Medals</span><span class="ticker-dot">◆</span>
+        <span>AIU Malaysia</span><span class="ticker-dot">◆</span>
+      </div>
+    </div>
+    <div class="stats-container">
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="3.63" data-decimal="2">0.00</span>
+        <span class="stat-label">CGPA</span>
+        <span class="stat-sub">Dean's List</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="30" data-suffix="+">0</span>
+        <span class="stat-label">Cricket Matches</span>
+        <span class="stat-sub">Official Games</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="4">0</span>
+        <span class="stat-label">Media Projects</span>
+        <span class="stat-sub">Documentary · Film · Live</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="12" data-suffix="+">0</span>
+        <span class="stat-label">Medals Won</span>
+        <span class="stat-sub">Sports &amp; Activities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// Who I Am</span>
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm <strong class="highlight">Md Mubashshir Billah</strong>, a Media &amp; Communication student at
+            <strong>Albukhary International University (AIU)</strong>, Malaysia — studying on a
+            full <strong class="highlight">Albukhary Foundation Scholarship</strong>. I maintain a CGPA of
+            <strong class="highlight">3.63</strong> with consecutive Dean's List recognition.
+          </p>
+          <p>
+            I live and breathe media — from holding a camera on a documentary shoot at dawn,
+            to designing social content at midnight. My work spans <strong>film production</strong>,
+            <strong>live broadcasting</strong>, <strong>digital content</strong>, and <strong>community leadership</strong>.
+          </p>
+          <div class="edu-cards">
+            <div class="edu-card">
+              <div class="edu-icon"><i class="ph ph-graduation-cap"></i></div>
+              <div>
+                <strong>Bachelor of Media &amp; Communication</strong>
+                <span>2023 – Dec 2026 · AIU, Malaysia</span>
+              </div>
+            </div>
+            <div class="edu-card">
+              <div class="edu-icon"><i class="ph ph-book-open"></i></div>
+              <div>
+                <strong>Foundation in Computing</strong>
+                <span>2022 – 2023 · AIU, Malaysia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-skills reveal">
+          <h3 class="skills-heading">
+            <i class="ph ph-terminal"></i> Skills &amp; Tools
+          </h3>
+          <div class="skills-grid">
+            <span class="skill-tag"><i class="ph ph-microphone"></i> Public Speaking</span>
+            <span class="skill-tag"><i class="ph ph-share-network"></i> Social Media</span>
+            <span class="skill-tag"><i class="ph ph-pencil-line"></i> Writing &amp; Reporting</span>
+            <span class="skill-tag"><i class="ph ph-video-camera"></i> Video Editing</span>
+            <span class="skill-tag"><i class="ph ph-camera"></i> Photography</span>
+            <span class="skill-tag"><i class="ph ph-palette"></i> Content Design</span>
+            <span class="skill-tag"><i class="ph ph-broadcast"></i> Broadcasting</span>
+            <span class="skill-tag"><i class="ph ph-radio"></i> Media Production</span>
+            <span class="skill-tag"><i class="ph ph-users-three"></i> Leadership</span>
+            <span class="skill-tag"><i class="ph ph-microsoft-word-logo"></i> Microsoft Office</span>
+            <span class="skill-tag"><i class="ph ph-calendar-check"></i> Event Coordination</span>
+            <span class="skill-tag"><i class="ph ph-aperture"></i> Camera Operation</span>
+            <span class="skill-tag"><i class="ph ph-sun"></i> Lighting Setup</span>
+            <span class="skill-tag"><i class="ph ph-monitor-play"></i> Live Production</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// My Journey</span>
+        <h2 class="section-title">Experience &amp; <span class="gradient-text">Leadership</span></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="tl-year">2023–2024</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-top">
+              <span class="tl-badge media">Media</span>
+            </div>
+            <h3 class="tl-title">Head of Media Department</h3>
+            <p class="tl-org"><i class="ph ph-mosque"></i> Al-Quran Club, AIU</p>
+            <ul class="tl-bullets">
+              <li>Managed all social media platforms for the club</li>
+              <li>Created digital promotional content, posters &amp; reels</li>
+              <li>Coordinated media coverage for all club events</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-year">2023–Now</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-top">
+              <span class="tl-badge leader">Leadership</span>
+            </div>
+            <h3 class="tl-title">President — AIU Cricket Club</h3>
+            <p class="tl-org"><i class="ph ph-trophy"></i> AIU Cricket Club</p>
+            <ul class="tl-bullets">
+              <li>Leads tournaments, training, and team coordination</li>
+              <li>Played 30+ official matches representing the university</li>
+              <li>Won multiple inter-university awards &amp; medals</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-year">2023–2024</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-top">
+              <span class="tl-badge community">Community</span>
+            </div>
+            <h3 class="tl-title">Secretary — BASCA</h3>
+            <p class="tl-org"><i class="ph ph-flag"></i> Bangladeshi Students Community, AIU</p>
+            <ul class="tl-bullets">
+              <li>Organized student programs and cultural events</li>
+              <li>Managed official communications and documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-year">2023–Now</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-top">
+              <span class="tl-badge volunteer">Volunteer</span>
+            </div>
+            <h3 class="tl-title">Volunteer</h3>
+            <p class="tl-org"><i class="ph ph-globe"></i> World IT Space / 3 Zero Club</p>
+            <ul class="tl-bullets">
+              <li>Provided IT support for community initiatives</li>
+              <li>Participated in social business and zero-poverty programs</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="tl-year">2025–Now</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="tl-top">
+              <span class="tl-badge teach">Teaching</span>
+            </div>
+            <h3 class="tl-title">Private Tutor</h3>
+            <p class="tl-org"><i class="ph ph-chalkboard-teacher"></i> Local Rohingya Family, Malaysia</p>
+            <ul class="tl-bullets">
+              <li>Teaches English, Mathematics, and Quran</li>
+              <li>Supporting education of a displaced Myanmar family</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEDIA PROJECTS ===== -->
+  <section id="projects">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// On Set &amp; Behind The Lens</span>
+        <h2 class="section-title">Media <span class="gradient-text">Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-num">01</div>
+          <div class="project-type-bar documentary">DOCUMENTARY · 24 MIN</div>
+          <div class="project-icon-wrap"><i class="ph ph-film-slate"></i></div>
+          <h3 class="project-title">"Lanoh's Book of Life"</h3>
+          <p class="project-date"><i class="ph ph-calendar-blank"></i> January 2025</p>
+          <p class="project-desc">
+            A cinematic 24-minute documentary capturing the cultural identity and daily lives
+            of the Lanoh indigenous community — raw, real, and deeply human.
+          </p>
+          <div class="project-roles">
+            <span>📷 Cameraman</span>
+            <span>💡 Gaffer</span>
+            <span>🎞️ Editor</span>
+            <span>🦺 Safety Officer</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">02</div>
+          <div class="project-type-bar shortfilm">SHORT FILM · 7 MIN</div>
+          <div class="project-icon-wrap"><i class="ph ph-video"></i></div>
+          <h3 class="project-title">"Are You Okay?"</h3>
+          <p class="project-date"><i class="ph ph-calendar-blank"></i> October 2025</p>
+          <p class="project-desc">
+            A 7-minute short film exploring mental health and human connection — visually
+            driven storytelling that speaks louder than words.
+          </p>
+          <div class="project-roles">
+            <span>📷 Cameraman</span>
+            <span>🎙️ Audio Assistant</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">03</div>
+          <div class="project-type-bar broadcast">BROADCASTING · JOURNALISM</div>
+          <div class="project-icon-wrap"><i class="ph ph-microphone-stage"></i></div>
+          <h3 class="project-title">"Lectured!"</h3>
+          <p class="project-date"><i class="ph ph-calendar-blank"></i> October 2024</p>
+          <p class="project-desc">
+            A broadcast journalism production covering educational narratives, produced
+            for the AIU Media &amp; Communication program.
+          </p>
+          <div class="project-roles">
+            <span>🎥 Videographer</span>
+            <span>💡 Lighting Asst.</span>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-num">04</div>
+          <div class="project-type-bar live">LIVE EVENT · PRODUCTION</div>
+          <div class="project-icon-wrap"><i class="ph ph-broadcast"></i></div>
+          <h3 class="project-title">4th Convocation Ceremony</h3>
+          <p class="project-date"><i class="ph ph-calendar-blank"></i> December 2024</p>
+          <p class="project-desc">
+            Part of the live production crew for AIU's 4th Convocation — managing real-time
+            camera operations and broadcast support for a major university event.
+          </p>
+          <div class="project-roles">
+            <span>📷 Cameraman</span>
+            <span>📡 Live Production Asst.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// Recognition</span>
+        <h2 class="section-title">Achieve<span class="gradient-text">ments</span></h2>
+      </div>
+      <div class="achievements-grid">
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-medal"></i></div>
+          <h3>Albukhary Foundation Scholarship</h3>
+          <p>Full scholarship covering tuition and living — awarded for academic excellence and leadership potential.</p>
+        </div>
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-star"></i></div>
+          <h3>Consecutive Dean's List</h3>
+          <p>Maintained CGPA <strong class="highlight">3.63</strong>, earning Dean's List recognition every semester.</p>
+        </div>
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-trophy"></i></div>
+          <h3>12+ Sports &amp; Activity Medals</h3>
+          <p>Won over 12 medals in Cricket and Football representing AIU at multiple tournaments.</p>
+        </div>
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-cricket"></i></div>
+          <h3>Cricket Club President</h3>
+          <p>Led AIU Cricket Club in multiple inter-university tournaments, building team culture and winning awards.</p>
+        </div>
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-heart"></i></div>
+          <h3>Community Service Leader</h3>
+          <p>Volunteering, tutoring refugee families, and participating in social business programs.</p>
+        </div>
+
+        <div class="achievement-card reveal">
+          <div class="ach-icon"><i class="ph ph-film-reel"></i></div>
+          <h3>Media Production</h3>
+          <p>Contributed to 4 professional productions — documentary, short film, broadcast journalism, and live event.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LANGUAGES ===== -->
+  <section id="languages">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// Multilingual</span>
+        <h2 class="section-title">Lan<span class="gradient-text">guages</span></h2>
+      </div>
+      <div class="lang-grid">
+
+        <div class="lang-card reveal">
+          <div class="lang-flag">🇬🇧</div>
+          <h3>English</h3>
+          <span class="lang-level fluent">Fluent</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+          <span class="lang-pct">95%</span>
+        </div>
+
+        <div class="lang-card reveal">
+          <div class="lang-flag">🇧🇩</div>
+          <h3>Bengali</h3>
+          <span class="lang-level native">Native</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          <span class="lang-pct">100%</span>
+        </div>
+
+        <div class="lang-card reveal">
+          <div class="lang-flag">🇸🇦</div>
+          <h3>Arabic</h3>
+          <span class="lang-level intermediate">Intermediate</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+          <span class="lang-pct">60%</span>
+        </div>
+
+        <div class="lang-card reveal">
+          <div class="lang-flag">🇲🇾</div>
+          <h3>Malay</h3>
+          <span class="lang-level intermediate">Intermediate</span>
+          <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+          <span class="lang-pct">60%</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AI CHAT ===== -->
+  <section id="chat">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// Ask Anything</span>
+        <h2 class="section-title">AI <span class="gradient-text">Chat</span></h2>
+        <p class="section-sub">Powered by Claude · I know everything about Mubashshir's profile</p>
+      </div>
+
+      <div class="chat-wrapper reveal">
+        <div class="chat-header">
+          <div class="chat-status">
+            <span class="status-dot"></span> Claude AI · Online
+          </div>
+          <span class="chat-model">claude-sonnet-4</span>
+        </div>
+        <div class="chat-box" id="chat-box">
+          <div class="chat-message bot">
+            <div class="chat-avatar bot-avatar"><i class="ph ph-robot"></i></div>
+            <div class="chat-bubble">
+              Hey! 👋 I'm an AI with full knowledge of Mubashshir's portfolio. Ask me about his skills, projects, career goals, or anything else!
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-suggestions" id="chat-suggestions">
+          <button class="suggestion-btn" onclick="sendSuggestion('What are Mubashshir\'s internship strengths?')">💼 Internship strengths?</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('Tell me about his media projects')">🎬 Media projects?</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('What leadership roles has he held?')">👑 Leadership roles?</button>
+          <button class="suggestion-btn" onclick="sendSuggestion('What are his career goals?')">🎯 Career goals?</button>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about Mubashshir…" autocomplete="off" />
+          <button class="chat-send" id="chat-send" onclick="sendMessage()">
+            <i class="ph ph-paper-plane-tilt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">// Let's Connect</span>
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3 class="contact-sub">Direct Contact</h3>
+          <div class="contact-links">
+            <a href="tel:+601167820223" class="contact-item" id="contact-phone">
+              <div class="ci-icon"><i class="ph ph-phone"></i></div>
+              <div>
+                <strong>Phone</strong>
+                <span>+60 11-6782 0223</span>
+              </div>
+            </a>
+            <a href="mailto:mubashshirbillah@student.aiu.edu.my" class="contact-item" id="contact-email">
+              <div class="ci-icon"><i class="ph ph-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <span>mubashshirbillah@student.aiu.edu.my</span>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/mubashshir-billah" target="_blank" rel="noopener" class="contact-item" id="contact-linkedin">
+              <div class="ci-icon"><i class="ph ph-linkedin-logo"></i></div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/mubashshir-billah</span>
+              </div>
+            </a>
+            <div class="contact-item no-link" id="contact-location">
+              <div class="ci-icon"><i class="ph ph-map-pin"></i></div>
+              <div>
+                <strong>Location</strong>
+                <span>Alor Setar, Kedah, Malaysia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="references reveal">
+          <h3 class="contact-sub">References</h3>
+          <div class="ref-card">
+            <div class="ref-avatar"><i class="ph ph-user-circle"></i></div>
+            <div class="ref-info">
+              <strong>Mohamad Nor Hisyam bin Musa</strong>
+              <span>Head of Programme, Media &amp; Communication · AIU</span>
+              <a href="tel:+60128403454"><i class="ph ph-phone"></i> +6012-840 3454</a>
+              <a href="mailto:hisyam.musa@aiu.edu.my"><i class="ph ph-envelope"></i> hisyam.musa@aiu.edu.my</a>
+            </div>
+          </div>
+          <div class="ref-card">
+            <div class="ref-avatar"><i class="ph ph-user-circle"></i></div>
+            <div class="ref-info">
+              <strong>Dr Hisham Anand Barbhuiya</strong>
+              <span>Senior Lecturer · AIU</span>
+              <a href="tel:+905522449834"><i class="ph ph-phone"></i> +90 5522449834</a>
+              <a href="mailto:hisham.barbhuiya@aiu.edu.my"><i class="ph ph-envelope"></i> hisham.barbhuiya@aiu.edu.my</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">[<span class="gradient-text">MB</span>]</div>
+      <p class="footer-name">Md Mubashshir Billah</p>
+      <p class="footer-tagline">Media &amp; Communication · AIU · Malaysia</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/mubashshir-billah" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="ph ph-linkedin-logo"></i>
+        </a>
+        <a href="mailto:mubashshirbillah@student.aiu.edu.my" aria-label="Email">
+          <i class="ph ph-envelope"></i>
+        </a>
+        <a href="tel:+601167820223" aria-label="Phone">
+          <i class="ph ph-phone"></i>
+        </a>
+      </div>
+      <div class="footer-divider"></div>
+      <p class="footer-copy">© 2025 Md Mubashshir Billah · All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
