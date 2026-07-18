@@ -11,6 +11,16 @@
   --bg-darker:    #f1f5f9; /* Slate-grey base */
   --bg-ticker:    #0f172a; /* Slate navy for contrast ticker */
   
+  /* Section backgrounds for easy scroll differentiation */
+  --bg-about:        #f8fafc; /* Cool slate white */
+  --bg-experience:   #eff6ff; /* Soft light blue */
+  --bg-projects:     #ffffff; /* Solid pure white */
+  --bg-achievements: #fffbeb; /* Soft light amber gold */
+  --bg-languages:    #f5f3ff; /* Soft light lavender */
+  --bg-chat:         #ecfeff; /* Soft light cyan */
+  --bg-contact:      #f8fafc; /* Cool slate white */
+  --bg-footer:       #f1f5f9; /* Slate grey footer */
+  
   /* Slate navy for high-readability professional typography */
   --text-main:    #0f172a;
   --text-muted:   #475569;
@@ -818,7 +828,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    ABOUT (White Cards & Blue Details)
    ============================================================ */
-#about { background: var(--bg-base); }
+#about { background: var(--bg-about); }
 
 .about-grid {
   display: grid;
@@ -922,7 +932,7 @@ section { padding: 6rem 0; }
    EXPERIENCE (Sleek light-blue timeline)
    ============================================================ */
 #experience {
-  background: var(--bg-alt);
+  background: var(--bg-experience);
   position: relative;
   overflow: hidden;
 }
@@ -1057,7 +1067,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    MEDIA PROJECTS (White cards with colorful header borders)
    ============================================================ */
-#projects { background: var(--bg-base); }
+#projects { background: var(--bg-projects); }
 
 .projects-grid {
   display: grid;
@@ -1195,7 +1205,7 @@ section { padding: 6rem 0; }
    ACHIEVEMENTS (Grid of Cards)
    ============================================================ */
 #achievements {
-  background: var(--bg-alt);
+  background: var(--bg-achievements);
   position: relative;
   overflow: hidden;
 }
@@ -1258,7 +1268,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    LANGUAGES
    ============================================================ */
-#languages { background: var(--bg-base); }
+#languages { background: var(--bg-languages); }
 
 .lang-grid {
   display: grid;
@@ -1332,7 +1342,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    AI CHAT (Light theme Intercom style)
    ============================================================ */
-#chat { background: var(--bg-alt); }
+#chat { background: var(--bg-chat); }
 
 .chat-wrapper {
   max-width: 760px;
@@ -1508,7 +1518,7 @@ section { padding: 6rem 0; }
 /* ============================================================
    CONTACT
    ============================================================ */
-#contact { background: var(--bg-base); }
+#contact { background: var(--bg-contact); }
 
 .contact-grid {
   display: grid;
@@ -1606,7 +1616,7 @@ section { padding: 6rem 0; }
    FOOTER (Clean light blue / slate gray layout)
    ============================================================ */
 #footer {
-  background: #ffffff;
+  background: var(--bg-footer);
   border-top: 1px solid var(--border);
   padding: 3.5rem 0;
   box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.01);
