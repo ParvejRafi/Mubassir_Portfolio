@@ -51,7 +51,6 @@
           <li><a href="#gallery"      class="nav-link">Gallery</a></li>
           <li><a href="#achievements" class="nav-link">Awards</a></li>
           <li><a href="#languages"    class="nav-link">Languages</a></li>
-          <li><a href="#chat"         class="nav-link">AI Chat</a></li>
           <li><a href="#contact"      class="nav-link">Contact</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -71,6 +70,43 @@
       <div class="scanline"></div>
       <div class="lens-flare lf1"></div>
       <div class="lens-flare lf2"></div>
+      
+      <!-- Professional Media Viewfinder Overlays -->
+      <div class="viewfinder-overlay">
+        <div class="vf-corner vf-tl"></div>
+        <div class="vf-corner vf-tr"></div>
+        <div class="vf-corner vf-bl"></div>
+        <div class="vf-corner vf-br"></div>
+        
+        <div class="vf-center-grid">
+          <div class="vf-grid-line h-line"></div>
+          <div class="vf-grid-line v-line"></div>
+          <div class="vf-focus-ring"></div>
+          <div class="vf-focus-cross"></div>
+        </div>
+
+        <div class="vf-meta-top">
+          <span class="vf-rec-badge"><span class="rec-dot"></span> LIVE BROADCAST</span>
+          <span class="vf-timecode" id="hero-live-timecode">00:00:00</span>
+        </div>
+        
+        <div class="vf-meta-bottom">
+          <span class="vf-camera-settings">RAW 4K &nbsp; 24FPS &nbsp; F/2.8 &nbsp; ISO 100</span>
+          <span class="vf-battery"><i class="ph ph-battery-high"></i> 100% REC</span>
+        </div>
+        
+        <!-- Broadcast Color Test Bars Sidebar (Faint Editorial Vibe) -->
+        <div class="broadcast-color-sidebar">
+          <span class="bar-white"></span>
+          <span class="bar-yellow"></span>
+          <span class="bar-cyan"></span>
+          <span class="bar-green"></span>
+          <span class="bar-magenta"></span>
+          <span class="bar-red"></span>
+          <span class="bar-blue"></span>
+        </div>
+      </div>
+
       <!-- Film strip decoration -->
       <div class="filmstrip left">
         <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
@@ -508,38 +544,44 @@
       </div>
       <div class="achievements-grid">
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-medal"></i></div>
+        <div class="achievement-card scholarship reveal">
+          <span class="ach-tag">SCHOLARSHIP</span>
+          <div class="ach-icon"><i class="ph ph-graduation-cap"></i></div>
           <h3>Albukhary Foundation Scholarship</h3>
           <p>Full scholarship covering tuition and living — awarded for academic excellence and leadership potential.</p>
         </div>
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-star"></i></div>
+        <div class="achievement-card deans-list reveal">
+          <span class="ach-tag">ACADEMIC</span>
+          <div class="ach-icon"><i class="ph ph-award"></i></div>
           <h3>Consecutive Dean's List</h3>
           <p>Maintained CGPA <strong class="highlight">3.63</strong>, earning Dean's List recognition every semester.</p>
         </div>
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-trophy"></i></div>
+        <div class="achievement-card sports reveal">
+          <span class="ach-tag">ATHLETICS</span>
+          <div class="ach-icon"><i class="ph ph-medal"></i></div>
           <h3>12+ Sports &amp; Activity Medals</h3>
           <p>Won over 12 medals in Cricket and Football representing AIU at multiple tournaments.</p>
         </div>
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-cricket"></i></div>
+        <div class="achievement-card leadership reveal">
+          <span class="ach-tag">LEADERSHIP</span>
+          <div class="ach-icon"><i class="ph ph-crown"></i></div>
           <h3>Cricket Club President</h3>
           <p>Led AIU Cricket Club in multiple inter-university tournaments, building team culture and winning awards.</p>
         </div>
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-heart"></i></div>
+        <div class="achievement-card community reveal">
+          <span class="ach-tag">SERVICE</span>
+          <div class="ach-icon"><i class="ph ph-heart-handshake"></i></div>
           <h3>Community Service Leader</h3>
           <p>Volunteering, tutoring refugee families, and participating in social business programs.</p>
         </div>
 
-        <div class="achievement-card reveal">
-          <div class="ach-icon"><i class="ph ph-film-reel"></i></div>
+        <div class="achievement-card media reveal">
+          <span class="ach-tag">CREATIVE</span>
+          <div class="ach-icon"><i class="ph ph-aperture"></i></div>
           <h3>Media Production</h3>
           <p>Contributed to 4 professional productions — documentary, short film, broadcast journalism, and live event.</p>
         </div>
@@ -558,79 +600,49 @@
       <div class="lang-grid">
 
         <div class="lang-card reveal">
-          <div class="lang-flag">🇬🇧</div>
+          <div class="lang-top">
+            <span class="lang-code">EN</span>
+            <div class="lang-flag-wrap">🇬🇧</div>
+          </div>
           <h3>English</h3>
-          <span class="lang-level fluent">Fluent</span>
+          <span class="lang-level fluent">Professional Fluent</span>
           <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
           <span class="lang-pct">95%</span>
         </div>
 
         <div class="lang-card reveal">
-          <div class="lang-flag">🇧🇩</div>
+          <div class="lang-top">
+            <span class="lang-code">BN</span>
+            <div class="lang-flag-wrap">🇧🇩</div>
+          </div>
           <h3>Bengali</h3>
-          <span class="lang-level native">Native</span>
+          <span class="lang-level native">Native Tongue</span>
           <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
           <span class="lang-pct">100%</span>
         </div>
 
         <div class="lang-card reveal">
-          <div class="lang-flag">🇸🇦</div>
+          <div class="lang-top">
+            <span class="lang-code">AR</span>
+            <div class="lang-flag-wrap">🇸🇦</div>
+          </div>
           <h3>Arabic</h3>
-          <span class="lang-level intermediate">Intermediate</span>
+          <span class="lang-level intermediate">Conversational</span>
           <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
           <span class="lang-pct">60%</span>
         </div>
 
         <div class="lang-card reveal">
-          <div class="lang-flag">🇲🇾</div>
+          <div class="lang-top">
+            <span class="lang-code">MS</span>
+            <div class="lang-flag-wrap">🇲🇾</div>
+          </div>
           <h3>Malay</h3>
-          <span class="lang-level intermediate">Intermediate</span>
+          <span class="lang-level intermediate">Conversational</span>
           <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
           <span class="lang-pct">60%</span>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== AI CHAT ===== -->
-  <section id="chat">
-    <div class="section-container">
-      <div class="section-header reveal">
-        <span class="section-eyebrow">// Ask Anything</span>
-        <h2 class="section-title">AI <span class="gradient-text">Chat</span></h2>
-        <p class="section-sub">Powered by Claude · I know everything about Mubashshir's profile</p>
-      </div>
-
-      <div class="chat-wrapper reveal">
-        <div class="chat-header">
-          <div class="chat-status">
-            <span class="status-dot"></span> Claude AI · Online
-          </div>
-          <span class="chat-model">claude-sonnet-4</span>
-        </div>
-        <div class="chat-box" id="chat-box">
-          <div class="chat-message bot">
-            <div class="chat-avatar bot-avatar"><i class="ph ph-robot"></i></div>
-            <div class="chat-bubble">
-              Hey! 👋 I'm an AI with full knowledge of Mubashshir's portfolio. Ask me about his skills, projects, career goals, or anything else!
-            </div>
-          </div>
-        </div>
-
-        <div class="chat-suggestions" id="chat-suggestions">
-          <button class="suggestion-btn" onclick="sendSuggestion('What are Mubashshir\'s internship strengths?')">💼 Internship strengths?</button>
-          <button class="suggestion-btn" onclick="sendSuggestion('Tell me about his media projects')">🎬 Media projects?</button>
-          <button class="suggestion-btn" onclick="sendSuggestion('What leadership roles has he held?')">👑 Leadership roles?</button>
-          <button class="suggestion-btn" onclick="sendSuggestion('What are his career goals?')">🎯 Career goals?</button>
-        </div>
-
-        <div class="chat-input-row">
-          <input type="text" id="chat-input" class="chat-input" placeholder="Ask about Mubashshir…" autocomplete="off" />
-          <button class="chat-send" id="chat-send" onclick="sendMessage()">
-            <i class="ph ph-paper-plane-tilt"></i>
-          </button>
-        </div>
       </div>
     </div>
   </section>

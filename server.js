@@ -43,6 +43,7 @@ const FOLDER_META = {
   'convocation-photos':  { category: 'events',      label: 'Convocation Live',           color: '#7c3aed', icon: 'ph-graduation-cap' },
   'community-photos':    { category: 'community',   label: 'Community Engagement',       color: '#0d9488', icon: 'ph-hands-clapping' },
   'journalism-photos':   { category: 'journalism',  label: 'Broadcast Journalism',       color: '#f43f5e', icon: 'ph-broadcast' },
+  'shortfilm-photos':    { category: 'short-film',  label: '7 Min Short Film',           color: '#8b5cf6', icon: 'ph-film-reel' },
 };
 
 const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp']);

@@ -139,10 +139,11 @@ const langObserver = new IntersectionObserver(
 langFills.forEach(el => langObserver.observe(el));
 
 /* ------------------------------------------------------------------
-   6. LIVE TIMECODE on hero photo
+   6. LIVE TIMECODE on hero photo and viewfinder
    ------------------------------------------------------------------ */
 const timecodeEl = document.querySelector('.photo-timecode');
-if (timecodeEl) {
+const heroTimecodeEl = document.getElementById('hero-live-timecode');
+if (timecodeEl || heroTimecodeEl) {
   let frames = 0;
   setInterval(() => {
     frames++;
@@ -151,88 +152,10 @@ if (timecodeEl) {
     const m  = Math.floor(frames / 25 / 60) % 60;
     const h  = Math.floor(frames / 25 / 3600);
     const pad = n => String(n).padStart(2, '0');
-    timecodeEl.textContent = `${pad(h)}:${pad(m)}:${pad(s)}:${pad(f)}`;
+    const tcString = `${pad(h)}:${pad(m)}:${pad(s)}:${pad(f)}`;
+    if (timecodeEl) timecodeEl.textContent = tcString;
+    if (heroTimecodeEl) heroTimecodeEl.textContent = tcString;
   }, 40); // ~25fps
-}
-
-/* ------------------------------------------------------------------
-   7. AI CHAT
-   ------------------------------------------------------------------ */
-const chatBox   = document.getElementById('chat-box');
-const chatInput = document.getElementById('chat-input');
-const chatSend  = document.getElementById('chat-send');
-
-chatInput.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && !e.shiftKey) {
-    e.preventDefault();
-    sendMessage();
-  }
-});
-
-function sendSuggestion(text) {
-  chatInput.value = text;
-  sendMessage();
-}
-
-function appendMessage(role, content, isTyping = false) {
-  const msg    = document.createElement('div');
-  msg.classList.add('chat-message', role);
-
-  const avatar = document.createElement('div');
-  avatar.classList.add('chat-avatar', role === 'bot' ? 'bot-avatar' : 'user-avatar');
-  avatar.innerHTML = role === 'bot'
-    ? '<i class="ph ph-robot"></i>'
-    : '<i class="ph ph-user"></i>';
-
-  const bubble = document.createElement('div');
-  bubble.classList.add('chat-bubble');
-
-  if (isTyping) {
-    bubble.innerHTML = `<div class="typing-dots"><span></span><span></span><span></span></div>`;
-  } else {
-    bubble.textContent = content;
-  }
-
-  msg.appendChild(avatar);
-  msg.appendChild(bubble);
-  chatBox.appendChild(msg);
-  chatBox.scrollTop = chatBox.scrollHeight;
-  return msg;
-}
-
-async function sendMessage() {
-  const text = chatInput.value.trim();
-  if (!text) return;
-
-  chatInput.value = '';
-  chatSend.disabled = true;
-
-  appendMessage('user', text);
-  const typingMsg = appendMessage('bot', '', true);
-
-  try {
-    const response = await fetch('/api/chat', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ message: text }),
-    });
-
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error || `Server error ${response.status}`);
-    }
-
-    const data = await response.json();
-    typingMsg.remove();
-    appendMessage('bot', data.reply);
-
-  } catch (err) {
-    typingMsg.remove();
-    appendMessage('bot', `⚠️ ${err.message || 'Unable to reach the AI assistant. Make sure the server is running.'}`);
-  } finally {
-    chatSend.disabled = false;
-    chatInput.focus();
-  }
 }
 
 /* ------------------------------------------------------------------
