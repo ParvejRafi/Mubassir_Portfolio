@@ -349,7 +349,35 @@ section { padding: 6rem 0; }
   padding: 8rem 2rem 5rem;
 }
 
-.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1) brightness(1.05) contrast(0.95);
+  animation: kenBurns 35s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.88) 0%, rgba(255, 255, 255, 0.82) 40%, rgba(224, 242, 254, 0.88) 100%);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
 
 .bg-circle {
   position: absolute;
@@ -357,6 +385,7 @@ section { padding: 6rem 0; }
   filter: blur(80px);
   opacity: 0.4;
   animation: floatCircle 10s ease-in-out infinite alternate;
+  z-index: 2;
 }
 .c1 {
   width: 500px; height: 500px;
@@ -390,6 +419,7 @@ section { padding: 6rem 0; }
   background-image: linear-gradient(rgba(2, 132, 199, 0.03) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(2, 132, 199, 0.03) 1px, transparent 1px);
   background-size: 24px 24px;
+  z-index: 2;
 }
 
 .lens-flare {
@@ -397,6 +427,7 @@ section { padding: 6rem 0; }
   border-radius: 50%;
   pointer-events: none;
   animation: lensFlare 6s ease-in-out infinite;
+  z-index: 2;
 }
 .lf1 {
   width: 150px; height: 150px;
@@ -419,7 +450,7 @@ section { padding: 6rem 0; }
   position: absolute;
   inset: 20px;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
   border: 1px solid rgba(2, 132, 199, 0.05);
 }
 
@@ -570,6 +601,7 @@ section { padding: 6rem 0; }
   align-items: center;
   justify-content: space-around;
   padding: 2rem 0;
+  z-index: 3;
 }
 .filmstrip.left  { left: 0; }
 .filmstrip.right { right: 0; border-right: none; border-left: 1px solid rgba(15, 23, 42, 0.04); }
