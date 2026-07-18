@@ -11,3 +11,9 @@ node_modules/
 # OS files
 .DS_Store
 Thumbs.db
+
+# HEIC/HEIF files (not browser compatible — convert to JPG first)
+*.HEIC
+*.heic
+*.HEIF
+*.heif

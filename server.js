@@ -29,14 +29,20 @@ app.use(express.json());
 const fs = require('fs');
 
 const FOLDER_META = {
-  'random':           { category: 'photos',      label: 'Photography',                  color: '#0284c7', icon: 'ph-camera' },
-  'community':        { category: 'community',   label: 'Community Engagement',          color: '#0d9488', icon: 'ph-hands-clapping' },
-  'community-global': { category: 'community',   label: 'Community – Global Citizen',    color: '#0d9488', icon: 'ph-globe' },
-  'promotional':      { category: 'promotional', label: 'Promotional · Advertisement',   color: '#d97706', icon: 'ph-megaphone' },
-  'convocation':      { category: 'events',      label: 'Convocation Live',              color: '#7c3aed', icon: 'ph-graduation-cap' },
-  'journalism':       { category: 'journalism',  label: 'Broadcast Journalism',          color: '#f43f5e', icon: 'ph-broadcast' },
-  'documentary':      { category: 'documentary', label: '24 Min Documentary',            color: '#10b981', icon: 'ph-film-slate' },
-  'short-film':       { category: 'short-film',  label: '7 Min Short Film',              color: '#8b5cf6', icon: 'ph-film-reel' },
+  // original planned folders
+  'random':              { category: 'photos',      label: 'Photography',                color: '#0284c7', icon: 'ph-camera' },
+  'community':           { category: 'community',   label: 'Community Engagement',       color: '#0d9488', icon: 'ph-hands-clapping' },
+  'community-global':    { category: 'community',   label: 'Community – Global Citizen', color: '#0d9488', icon: 'ph-globe' },
+  'promotional':         { category: 'promotional', label: 'Promotional · Ad',           color: '#d97706', icon: 'ph-megaphone' },
+  'convocation':         { category: 'events',      label: 'Convocation Live',           color: '#7c3aed', icon: 'ph-graduation-cap' },
+  'journalism':          { category: 'journalism',  label: 'Broadcast Journalism',       color: '#f43f5e', icon: 'ph-broadcast' },
+  'documentary':         { category: 'documentary', label: '24 Min Documentary',         color: '#10b981', icon: 'ph-film-slate' },
+  'short-film':          { category: 'short-film',  label: '7 Min Short Film',           color: '#8b5cf6', icon: 'ph-film-reel' },
+  // actual uploaded folder names
+  'documentary-photos':  { category: 'documentary', label: '24 Min Documentary',         color: '#10b981', icon: 'ph-film-slate' },
+  'convocation-photos':  { category: 'events',      label: 'Convocation Live',           color: '#7c3aed', icon: 'ph-graduation-cap' },
+  'community-photos':    { category: 'community',   label: 'Community Engagement',       color: '#0d9488', icon: 'ph-hands-clapping' },
+  'journalism-photos':   { category: 'journalism',  label: 'Broadcast Journalism',       color: '#f43f5e', icon: 'ph-broadcast' },
 };
 
 const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp']);
