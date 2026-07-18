@@ -265,6 +265,207 @@ window.addEventListener('scroll', () => {
 const navDateEl = document.getElementById('nav-date');
 if (navDateEl) {
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const today  = new Date();
-  navDateEl.textContent = today.toLocaleDateString('en-US', options);
+  navDateEl.textContent = new Date().toLocaleDateString('en-US', options);
 }
+
+/* ------------------------------------------------------------------
+   11. MEDIA GALLERY — load from /api/assets, filter, lightbox, video modal
+   ------------------------------------------------------------------ */
+(async function initGallery() {
+  const gridEl    = document.getElementById('gallery-grid');
+  const loadingEl = document.getElementById('gallery-loading');
+  const emptyEl   = document.getElementById('gallery-empty');
+  const filterBar = document.getElementById('gallery-filters');
+  if (!gridEl) return;
+
+  let allItems    = [];
+  let photoItems  = []; // for lightbox navigation
+  let lbIndex     = 0;
+
+  /* --- fetch assets --- */
+  try {
+    const res  = await fetch('/api/assets');
+    const data = await res.json();
+    allItems   = data.items || [];
+  } catch (e) {
+    console.warn('Gallery: could not load assets', e);
+  }
+
+  loadingEl.style.display = 'none';
+
+  if (allItems.length === 0) {
+    emptyEl.style.display = 'block';
+    return;
+  }
+
+  /* --- render cards --- */
+  function prettifyName(filename) {
+    return filename
+      .replace(/\.[^.]+$/, '')        // remove extension
+      .replace(/[-_]/g, ' ')           // dashes/underscores → spaces
+      .replace(/\b\w/g, c => c.toUpperCase()); // title case
+  }
+
+  function buildCard(item, delay) {
+    const card = document.createElement('div');
+    card.className = `gallery-card ${item.type}`;
+    card.dataset.category = item.category;
+    card.style.animationDelay = `${delay * 60}ms`;
+
+    const icon = item.type === 'photo'
+      ? '<i class="ph ph-image"></i>'
+      : '<i class="ph ph-play-circle"></i>';
+
+    /* Media element */
+    let mediaHTML = '';
+    if (item.type === 'photo') {
+      mediaHTML = `<img class="gc-media" src="${item.path}" alt="${prettifyName(item.filename)}" loading="lazy" />`;
+    } else {
+      mediaHTML = item.thumbnail
+        ? `<img class="gc-video-thumb" src="${item.thumbnail}" alt="${prettifyName(item.filename)}" loading="lazy" />`
+        : `<div class="gc-video-placeholder"><i class="ph ph-${item.categoryIcon.replace('ph-','')}"></i></div>`;
+      mediaHTML += `<div class="gc-play-btn"><div class="gc-play-circle"><i class="ph ph-play"></i></div></div>`;
+    }
+
+    card.innerHTML = `
+      ${mediaHTML}
+      <div class="gc-top-label">
+        <span class="gc-cat-badge" style="border-color:${item.categoryColor}40; color:${item.categoryColor};">${item.categoryLabel}</span>
+        <span class="gc-type-icon">${icon}</span>
+      </div>
+      <div class="gc-overlay">
+        <div class="gc-overlay-title">${prettifyName(item.filename)}</div>
+        <div class="gc-overlay-sub">${item.type === 'photo' ? '🖼 Click to enlarge' : '▶ Click to play'}</div>
+      </div>`;
+
+    /* Click handlers */
+    if (item.type === 'photo') {
+      card.addEventListener('click', () => openLightbox(item));
+    } else {
+      card.addEventListener('click', () => openVideoModal(item));
+    }
+
+    return card;
+  }
+
+  function renderGrid(filter) {
+    gridEl.innerHTML = '';
+    photoItems = [];
+    const filtered = filter === 'all'
+      ? allItems
+      : allItems.filter(i => i.category === filter);
+
+    if (filtered.length === 0) {
+      emptyEl.style.display = 'block';
+    } else {
+      emptyEl.style.display = 'none';
+      filtered.forEach((item, i) => {
+        if (item.type === 'photo') photoItems.push(item);
+        gridEl.appendChild(buildCard(item, i));
+      });
+    }
+  }
+
+  renderGrid('all');
+
+  /* --- filter buttons --- */
+  filterBar.querySelectorAll('.gfilter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBar.querySelectorAll('.gfilter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(btn.dataset.filter);
+    });
+  });
+
+  /* ----------------------------------------------------------------
+     LIGHTBOX
+  ---------------------------------------------------------------- */
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lb-img');
+  const lbCat     = document.getElementById('lb-cat');
+  const lbFname   = document.getElementById('lb-fname');
+  const lbCounter = document.getElementById('lb-counter');
+  const lbClose   = document.getElementById('lb-close');
+  const lbPrev    = document.getElementById('lb-prev');
+  const lbNext    = document.getElementById('lb-next');
+
+  function openLightbox(item) {
+    lbIndex = photoItems.indexOf(item);
+    if (lbIndex === -1) lbIndex = 0;
+    showLbSlide();
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showLbSlide() {
+    const item  = photoItems[lbIndex];
+    lbImg.src   = item.path;
+    lbImg.alt   = prettifyName(item.filename);
+    lbCat.textContent   = item.categoryLabel;
+    lbFname.textContent = prettifyName(item.filename);
+    lbCounter.textContent = `${lbIndex + 1} / ${photoItems.length}`;
+    lbCat.style.color   = item.categoryColor;
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+  lbPrev.addEventListener('click', e => {
+    e.stopPropagation();
+    lbIndex = (lbIndex - 1 + photoItems.length) % photoItems.length;
+    showLbSlide();
+  });
+
+  lbNext.addEventListener('click', e => {
+    e.stopPropagation();
+    lbIndex = (lbIndex + 1) % photoItems.length;
+    showLbSlide();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display !== 'none') {
+      if (e.key === 'Escape')      closeLightbox();
+      if (e.key === 'ArrowLeft')   { lbIndex = (lbIndex - 1 + photoItems.length) % photoItems.length; showLbSlide(); }
+      if (e.key === 'ArrowRight')  { lbIndex = (lbIndex + 1) % photoItems.length; showLbSlide(); }
+    }
+    if (videoModal.style.display !== 'none') {
+      if (e.key === 'Escape') closeVideoModal();
+    }
+  });
+
+  /* ----------------------------------------------------------------
+     VIDEO MODAL
+  ---------------------------------------------------------------- */
+  const videoModal = document.getElementById('video-modal');
+  const vmVideo    = document.getElementById('vm-video');
+  const vmCat      = document.getElementById('vm-cat');
+  const vmTitle    = document.getElementById('vm-title');
+  const vmClose    = document.getElementById('vm-close');
+  const vmBackdrop = document.getElementById('vm-backdrop');
+
+  function openVideoModal(item) {
+    vmVideo.src        = item.path;
+    vmCat.textContent  = item.categoryLabel;
+    vmTitle.textContent = prettifyName(item.filename);
+    vmCat.style.color  = item.categoryColor;
+    videoModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    vmVideo.play().catch(() => {});
+  }
+
+  function closeVideoModal() {
+    vmVideo.pause();
+    vmVideo.src = '';
+    videoModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  vmClose.addEventListener('click', closeVideoModal);
+  vmBackdrop.addEventListener('click', closeVideoModal);
+})();
+

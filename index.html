@@ -48,6 +48,7 @@
           <li><a href="#about"        class="nav-link">About</a></li>
           <li><a href="#experience"   class="nav-link">Experience</a></li>
           <li><a href="#projects"     class="nav-link">Projects</a></li>
+          <li><a href="#gallery"      class="nav-link">Gallery</a></li>
           <li><a href="#achievements" class="nav-link">Awards</a></li>
           <li><a href="#languages"    class="nav-link">Languages</a></li>
           <li><a href="#chat"         class="nav-link">AI Chat</a></li>
@@ -434,6 +435,70 @@
     </div>
   </section>
 
+  <!-- ===== MEDIA GALLERY ===== -->
+  <section id="gallery">
+    <!-- Cinematic dark header strip -->
+    <div class="gallery-header-strip">
+      <div class="gallery-film-holes">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="gallery-title-block">
+        <span class="gallery-eyebrow"><i class="ph ph-aperture"></i> VISUAL PORTFOLIO</span>
+        <h2 class="gallery-section-title">Creative <span class="gallery-accent">Showcase</span></h2>
+        <p class="gallery-section-sub">Photography · Film · Broadcasting · Documentary · Community</p>
+      </div>
+      <div class="gallery-film-holes right">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- Filter bar -->
+    <div class="gallery-filter-wrap">
+      <div class="gallery-filters" id="gallery-filters">
+        <button class="gfilter-btn active" data-filter="all"><i class="ph ph-squares-four"></i> All Work</button>
+        <button class="gfilter-btn" data-filter="photos"><i class="ph ph-camera"></i> Photography</button>
+        <button class="gfilter-btn" data-filter="documentary"><i class="ph ph-film-slate"></i> Documentary</button>
+        <button class="gfilter-btn" data-filter="short-film"><i class="ph ph-film-reel"></i> Short Film</button>
+        <button class="gfilter-btn" data-filter="journalism"><i class="ph ph-broadcast"></i> Broadcast</button>
+        <button class="gfilter-btn" data-filter="events"><i class="ph ph-graduation-cap"></i> Events</button>
+        <button class="gfilter-btn" data-filter="community"><i class="ph ph-globe"></i> Community</button>
+        <button class="gfilter-btn" data-filter="promotional"><i class="ph ph-megaphone"></i> Promotional</button>
+      </div>
+    </div>
+
+    <!-- Gallery grid (dynamically rendered) -->
+    <div class="gallery-grid-wrap">
+      <!-- Loading state -->
+      <div class="gallery-loading" id="gallery-loading">
+        <div class="gallery-spinner"></div>
+        <p>Loading media files…</p>
+      </div>
+
+      <!-- Empty state -->
+      <div class="gallery-empty" id="gallery-empty" style="display:none;">
+        <div class="gallery-empty-visual">
+          <div class="empty-camera"><i class="ph ph-camera-slash"></i></div>
+          <div class="empty-rings">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <h3>Your Media Files Will Appear Here</h3>
+        <p>Drop photos &amp; videos into the <code>assets/</code> folder to populate this gallery.</p>
+        <div class="empty-folder-guide">
+          <div class="efg-item"><i class="ph ph-images" style="color:#0284c7"></i><span>photos/random/</span></div>
+          <div class="efg-item"><i class="ph ph-film-slate" style="color:#10b981"></i><span>videos/documentary/</span></div>
+          <div class="efg-item"><i class="ph ph-film-reel" style="color:#8b5cf6"></i><span>videos/short-film/</span></div>
+          <div class="efg-item"><i class="ph ph-broadcast" style="color:#f43f5e"></i><span>videos/journalism/</span></div>
+          <div class="efg-item"><i class="ph ph-graduation-cap" style="color:#7c3aed"></i><span>videos/convocation/</span></div>
+          <div class="efg-item"><i class="ph ph-megaphone" style="color:#d97706"></i><span>videos/promotional/</span></div>
+        </div>
+      </div>
+
+      <!-- Dynamic media grid -->
+      <div class="gallery-masonry" id="gallery-grid"></div>
+    </div>
+  </section>
+
   <!-- ===== ACHIEVEMENTS ===== -->
   <section id="achievements">
     <div class="section-container">
@@ -659,6 +724,36 @@
       <p class="footer-copy">© 2025 Md Mubashshir Billah · All Rights Reserved</p>
     </div>
   </footer>
+
+  <!-- ===== LIGHTBOX MODAL ===== -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" style="display:none;">
+    <button class="lb-close" id="lb-close" aria-label="Close"><i class="ph ph-x"></i></button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous"><i class="ph ph-caret-left"></i></button>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next"><i class="ph ph-caret-right"></i></button>
+    <div class="lb-content">
+      <img class="lb-img" id="lb-img" src="" alt="" />
+    </div>
+    <div class="lb-caption" id="lb-caption">
+      <span class="lb-category" id="lb-cat"></span>
+      <span class="lb-filename" id="lb-fname"></span>
+      <span class="lb-counter" id="lb-counter"></span>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO MODAL ===== -->
+  <div class="video-modal" id="video-modal" style="display:none;">
+    <div class="vm-backdrop" id="vm-backdrop"></div>
+    <div class="vm-box">
+      <button class="vm-close" id="vm-close" aria-label="Close video"><i class="ph ph-x"></i></button>
+      <div class="vm-player">
+        <video id="vm-video" controls playsinline></video>
+      </div>
+      <div class="vm-info">
+        <span class="vm-category" id="vm-cat"></span>
+        <span class="vm-title" id="vm-title"></span>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

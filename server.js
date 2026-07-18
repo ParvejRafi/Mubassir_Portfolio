@@ -18,9 +18,84 @@ require('dotenv').config();           // loads .env automatically
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files (index.html, style.css, main.js)
+// Serve static files (index.html, style.css, main.js, assets/)
 app.use(express.static(path.join(__dirname)));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(express.json());
+
+/* ------------------------------------------------------------------
+   Asset category map — matches folder names to display metadata
+   ------------------------------------------------------------------ */
+const fs = require('fs');
+
+const FOLDER_META = {
+  'random':           { category: 'photos',      label: 'Photography',                  color: '#0284c7', icon: 'ph-camera' },
+  'community':        { category: 'community',   label: 'Community Engagement',          color: '#0d9488', icon: 'ph-hands-clapping' },
+  'community-global': { category: 'community',   label: 'Community – Global Citizen',    color: '#0d9488', icon: 'ph-globe' },
+  'promotional':      { category: 'promotional', label: 'Promotional · Advertisement',   color: '#d97706', icon: 'ph-megaphone' },
+  'convocation':      { category: 'events',      label: 'Convocation Live',              color: '#7c3aed', icon: 'ph-graduation-cap' },
+  'journalism':       { category: 'journalism',  label: 'Broadcast Journalism',          color: '#f43f5e', icon: 'ph-broadcast' },
+  'documentary':      { category: 'documentary', label: '24 Min Documentary',            color: '#10b981', icon: 'ph-film-slate' },
+  'short-film':       { category: 'short-film',  label: '7 Min Short Film',              color: '#8b5cf6', icon: 'ph-film-reel' },
+};
+
+const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.gif', '.webp']);
+const VIDEO_EXTS = new Set(['.mp4', '.mov', '.webm', '.avi', '.mkv']);
+
+/* ------------------------------------------------------------------
+   GET /api/assets – returns all media files in the assets/ folder
+   ------------------------------------------------------------------ */
+app.get('/api/assets', (req, res) => {
+  const assetsDir = path.join(__dirname, 'assets');
+  const items     = [];
+
+  function scanSubDir(parentDir, baseUrl) {
+    if (!fs.existsSync(parentDir)) return;
+    const entries = fs.readdirSync(parentDir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+
+      const folderKey  = entry.name;
+      const meta       = FOLDER_META[folderKey] || {
+        category: folderKey, label: folderKey, color: '#0284c7', icon: 'ph-folder',
+      };
+      const folderPath = path.join(parentDir, folderKey);
+      const files      = fs.readdirSync(folderPath).filter(f => !f.startsWith('.') && !f.endsWith('.md'));
+
+      for (const file of files) {
+        const ext     = path.extname(file).toLowerCase();
+        const isImage = IMAGE_EXTS.has(ext);
+        const isVideo = VIDEO_EXTS.has(ext);
+        if (!isImage && !isVideo) continue;
+
+        const thumbBase = path.basename(file, ext) + '.jpg';
+        const thumbAbs  = path.join(assetsDir, 'thumbnails', thumbBase);
+        const thumb     = fs.existsSync(thumbAbs) ? `/assets/thumbnails/${thumbBase}` : null;
+
+        items.push({
+          id:            `${folderKey}-${file}`,
+          type:          isImage ? 'photo' : 'video',
+          category:      meta.category,
+          categoryLabel: meta.label,
+          categoryColor: meta.color,
+          categoryIcon:  meta.icon,
+          filename:      file,
+          path:          `${baseUrl}/${folderKey}/${file}`,
+          thumbnail:     thumb,
+        });
+      }
+    }
+  }
+
+  scanSubDir(path.join(assetsDir, 'photos'), '/assets/photos');
+  scanSubDir(path.join(assetsDir, 'videos'), '/assets/videos');
+
+  const categories = [...new Set(items.map(i => i.category))];
+  res.json({ items, categories });
+});
+
+
 
 /* ------------------------------------------------------------------
    Full CV / portfolio context injected as the system prompt
